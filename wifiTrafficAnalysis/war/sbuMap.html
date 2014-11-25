@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+</script>
+
+<script>
+
+var myCenter=new google.maps.LatLng(40.9142, -73.1162);
+/*
+var chapin = new google.maps.LatLng(40.906433,-73.10991);
+var melville = new google.maps.LatLng(40.915457, -73.121801);
+var sac = new google.maps.LatLng(40.914516, -73.124161);
+var javits = new google.maps.LatLng(40.912952, -73.122080);
+*/
+
+function initialize()
+{
+    var mapProp = {
+      'loc_id':'stonybrook',
+      center:myCenter,
+      zoom:80,
+      mapTypeId:google.maps.MapTypeId.TERRAIN 
+      };
+
+    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+    var markers = [];
+    var loc = [];
+    var lat, lon;
+    var mypos = ['chapin', 'melville', 'sac', 'javits'];
+    var imgUrl = [
+                    'http://www.cs.sunykorea.ac.kr/images/facultyImages/Das.jpg',
+                    'http://www.cs.sunykorea.ac.kr/images/facultyImages/Das.jpg',
+                    'http://www.cs.sunykorea.ac.kr/images/facultyImages/Das.jpg',
+                    'http://www.cs.sunykorea.ac.kr/images/facultyImages/Das.jpg'
+                ];
+    var info = [
+                'NASA Scientist',
+                'ISRO Researcher',
+                'Grad Advisor',
+                'Plagarism Cathcer - Strategy head',
+            ];
+            
+    for(i=0;i<mypos.length;i++){
+        switch(mypos[i]){
+            case 'chapin':
+                lat = 40.906433; lon = -73.10991;
+                break;
+            case 'melville':
+                lat = 40.915457; lon =  -73.121801;
+                break;
+            case 'sac':
+                lat = 40.914516; lon = -73.124161;
+                break;
+            case 'javits':
+                lat = 40.912952; lon = -73.122080;
+                break;
+        }
+        loc[i] = new google.maps.LatLng(lat, lon);
+        markers[i] = new google.maps.Marker({
+                                position:loc[i]
+                     });
+        markers[i].setMap(map);
+    }
+
+    var contents = [];
+    var para = "";
+    var imgs;
+    var heading;
+    var infowindows = [];
+    for(i=0;i<mypos.length;i++){
+                heading = "<h3>"+mypos[i]+"</h3>";
+                imgs = "<img height='200px' width='200px' src='"+imgUrl[i]+"' />";
+                para = "<p>" + imgs + info[i] + "<a target='_blank' href='http://www.google.com'>Google</a></p>";
+                contents[i] = heading + para ;
+                infowindows[i] = new google.maps.InfoWindow({
+                                            content:contents[i]
+                                 });
+    }
+
+    google.maps.event.addListener(markers[0], 'click', function() {
+      infowindows[0].open(map,markers[0]);
+    });
+    google.maps.event.addListener(markers[1], 'click', function() {
+      infowindows[1].open(map,markers[1]);
+    });
+    google.maps.event.addListener(markers[2], 'click', function() {
+      infowindows[2].open(map,markers[2]);
+    });
+    google.maps.event.addListener(markers[3], 'click', function() {
+      infowindows[3].open(map,markers[3]);
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+</head>
+
+<body>
+<div id="googleMap" style="width:1450px;height:680px;"></div>
+</body>
+</html>

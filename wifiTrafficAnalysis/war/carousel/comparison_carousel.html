@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Comparison for 4 location</title>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">        
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+    .content{
+            margin: 0px 100px 10px 10px;
+            margin-top: 70px;
+            margin-left: 10%;
+            margin-right: 10%;
+    }
+    .item{
+    background: #333;    
+    text-align: center;
+    height: 600px !important;
+    }
+    div.carousel-caption > h3,p{
+    font-weight:bold;
+    color:#FFF;
+    }
+    img{
+        margin-top: 50px;
+        alignment-adjust: middle;
+        margin-left: 250px;
+/*        margin-right: 150px;*/
+    }
+</style>
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+blueimp.Gallery(
+    document.getElementById('links').getElementsByTagName('a'),
+    {
+        container: '#blueimp-gallery-carousel',
+        carousel: true
+    }
+);
+</script>
+</head>
+<body>
+        <div class="header">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			 <!-- Brand and toggle get grouped for better mobile display -->
+    			<div class="navbar-header">
+    				<a class="navbar-brand" href="../index.html">
+    						Comparison for 4 location
+    				</a>
+    				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        				<span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+    			</div>
+    		 <!-- Collect the nav links, forms, and other content for toggling -->
+    		 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    		 	<ul class="nav navbar-nav navbar-right">
+    		 		<li>
+       					<a href="../index.html"><!-- <span class="glyphicon glyphicon-plus"></span>/<span class="glyphicon glyphicon-minus"></span>&nbsp; -->
+       						<span class="glyphicon glyphicon-home"></span>&nbsp;
+       						Home</a>
+       				</li>
+    		 	</ul>
+    		 </div>
+		</div>
+	</nav>
+        </div>
+    
+    
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+               <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="6"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="7"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="8"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="9"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="../weekend_graphs/comparison/APS.png" height="250px" alt="Histogram Plot - Area of nuclei">
+                        <div class="carousel-caption">
+                            <h3>Unique APs</h3>
+                            <p>There are more number of unique APs for melville and SAC when compared to CS and Chapin. </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../weekend_graphs/comparison/CLIENTS.png">
+                        <div class="carousel-caption">
+                          <h3>Unique Clients:</h3>
+                            <p>There are more number of unique Clients for melville and SAC when compared to CS and Chapin. Since the number of users are high at these places,may be its suggests that with more number of unique clients, we could reduce the network overhead.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../weekend_graphs/comparison/MANAGEMENT.png">
+                        <div class="carousel-caption">
+                            <p>Here CS building has a high percent of management frames compared to any other traces.In the overhead graphs for every location, we have also observed that CS building had a significant overhead and this is mainly because of the management frame compared to control or data frame. This high overhead if detrimental to network performance,particularly in when there were many users during the weekend.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../weekend_graphs/comparison/CONTROL.png">
+                        <div class="carousel-caption">
+                            <h3>Control frames:</h3>
+                            <p>802.11 control frames assist in the delivery of data frames between stations.The control frames are more for Chapin building compared to other traces.The RTS/CTS function is optional and reduces frame collisions present when hidden stations have associations with the same access point. </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../weekend_graphs/comparison/DATA.png">
+                        <div class="carousel-caption">
+                            <h3>Data frames: </h3>
+                            <p>These at the frames which come later in the game after the basic wlan communication is already established between the Mobile station and the Access point. The data frames are more for Chapin building compared to other traces.</p>
+                        </div>
+                    </div>                
+                    <div class="item">
+                        <img src="../weekend_graphs/comparison/data2.png">
+                        <div class="carousel-caption">
+                            <h3>Data frames: </h3>
+                            <p>hese at the frames which come later in the game after the basic wlan communication is already established between the Mobile station and the Access point. The data frames are more for Chapin building compared to other traces.</p>
+                        </div>
+                    </div>    
+                    <div class="item">
+                        <img src="../weekend_graphs/comparison/downandup.png">
+                        <div class="carousel-caption">
+                            <h3>Client and APs downlink/uplink:</h3>
+                            <p>Two types of authentication methods:
+Open system and shared key. We have observed only open system is being used everywhere.
+There were few authentication failures are due to checksum errors.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../weekend_graphs/comparison/retransmission.png">
+                        <div class="carousel-caption">
+                            <h3>Retransmission</h3>
+                            <p>The percentage of retransmitted data frames for CS was way to high than the rest of the locations. This suggested that the network performed very poorly at this place.</p>
+                        </div>
+                    </div> 
+                    <div class="item">
+                        <img src="../weekend_graphs/comparison/overhead.png">
+                        <div class="carousel-caption">
+                            <h3>Overhead:</h3>
+                            <p>Management frame/ total frame in 1 sec interval. For a client, the overhead consists of probe, association and reassociation requests. For an AP, the overhead frames are the corresponding response frames Each overhead frame transmission implies a missed data transmission opportunity for a node in the network.</p>
+                        </div>
+                    </div>   
+                    <div class="item">
+                        <img src="../weekend_graphs/comparison/retrans.png">
+                        <div class="carousel-caption">
+                            <h3>Retransmission</h3>
+                            <p>The percentage of retransmitted data frames for CS was way to high than the rest of the locations. This suggested that the network performed very poorly at this place.</p>
+                        </div>
+                    </div>                                                                              
+                    
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+           </div>
+    
+    </div>
+        
+    </body>
+</html>

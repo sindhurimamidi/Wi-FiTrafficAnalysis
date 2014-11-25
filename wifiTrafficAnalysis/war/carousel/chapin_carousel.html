@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chapin Apartments Analysis</title>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">        
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+    .content{
+            margin: 0px 100px 10px 10px;
+            margin-top: 70px;
+            margin-left: 10%;
+            margin-right: 10%;
+    }
+    .item{
+    background: #333;    
+    text-align: center;
+    height: 600px !important;
+    }
+    div.carousel-caption > h3,p{
+    font-weight:bold;
+    color:#FFF;
+    }
+    img{
+        margin-top: 50px;
+        alignment-adjust: middle;
+        margin-left: 250px;
+/*        margin-right: 150px;*/
+    }
+</style>
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+blueimp.Gallery(
+    document.getElementById('links').getElementsByTagName('a'),
+    {
+        container: '#blueimp-gallery-carousel',
+        carousel: true
+    }
+);
+</script>
+</head>
+<body>
+        <div class="header">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			 <!-- Brand and toggle get grouped for better mobile display -->
+    			<div class="navbar-header">
+    				<a class="navbar-brand" href="../index.html">
+    						Chapin Apartments
+    				</a>
+    				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        				<span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+    			</div>
+    		 <!-- Collect the nav links, forms, and other content for toggling -->
+    		 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    		 	<ul class="nav navbar-nav navbar-right">
+    		 		<li>
+       					<a href="../index.html"><!-- <span class="glyphicon glyphicon-plus"></span>/<span class="glyphicon glyphicon-minus"></span>&nbsp; -->
+       						<span class="glyphicon glyphicon-home"></span>&nbsp;
+       						Home</a>
+       				</li>
+    		 	</ul>
+    		 </div>
+		</div>
+	</nav>
+        </div>
+    
+    
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+               <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="../weekend_graphs/chapin/chapin.png" height="250px">
+                        <div class="carousel-caption">
+                            <h3>Histogram Plot of Packets</h3>
+                            <p>Irrespective of the day in the week Chapin had the highest amount of traffic.There are more number of control packets than the management and data packets.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../weekend_graphs/chapin/chapin_frames.png">
+                        <div class="carousel-caption">
+                          <h3>Frames</h3>
+                            <p>This plot is for frame number versus number of bytes.There are always lots of small packets (< 100 bytes) and lots of large packets (> 1400 bytes). Some bursts of packets with other sizes (around 400 bytes, 1000 bytes, etc.) can be clearly seen. </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../weekend_graphs/chapin/chapin_op.png">
+                        <div class="carousel-caption">
+                            <h3>Various factors</h3>
+                            <p>We have used python script to compute various factors to analyse the network such as the number of APS and clients.Data frames that were retransmitted. Frames that had more overhead. </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../weekend_graphs/chapin/throughput2.png">
+                        <div class="carousel-caption">
+                            <h3>Throughput</h3>
+                            <p>Using the wireshark, we have computed the throughput from the pcap files that we have captured while snooping.</p>
+                        </div>
+                    </div>
+                     <div class="item">
+                        <img src="../weekend_graphs/chapin/piechart.png">
+                        <div class="carousel-caption">
+                            <h3>Frames Comparison</h3>
+                            <p>These graphs gives an estimate about the various constitutes of different frames such as data ,control & management frame.There are more number of association and reassociation requests in the management frames, while there were more RTS/CTS in control frames and Data+CF poll in data frame.</p>
+                        </div>
+                    </div>                   
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+           </div>
+    
+    </div>
+        
+    </body>
+</html>

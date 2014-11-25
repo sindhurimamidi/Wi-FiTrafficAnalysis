@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+</script>
+
+<script>
+
+var myCenter=new google.maps.LatLng(40.9142, -73.1162);
+/*
+var chapin = new google.maps.LatLng(40.906433,-73.10991);
+var melville = new google.maps.LatLng(40.915457, -73.121801);
+var sac = new google.maps.LatLng(40.914516, -73.124161);
+var javits = new google.maps.LatLng(40.912952, -73.122080);
+*/
+
+function initialize()
+{
+    var mapProp = {
+      'loc_id':'stonybrook',
+      center:myCenter,
+      zoom:80,
+      mapTypeId:google.maps.MapTypeId.TERRAIN 
+      };
+
+    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+    var markers = [];
+    var loc = [];
+    var lat, lon;
+    var mypos = ['chapin', 'melville', 'sac', 'CSE'];
+    var imgUrl = [
+                    'https://c1.staticflickr.com/1/95/278062861_602e490da6.jpg',
+                    'http://upload.wikimedia.org/wikipedia/commons/6/6c/Melville_Library.jpg',
+                    'http://www.stonybrook.edu/sustainability/images/stories/campus-learning-laboratory-announcement-3.jpg',
+                    'http://www.computersciencedegreehub.com/wp-content/uploads/2014/10/44.-Department-of-Computer-Science-Stony-Brook-University-Stony-Brook-New-York.jpg'
+                ];
+    var info = ['chapin', 'melville', 'sac', 'CSE'];
+    var links = ['carousel/chapin_carousel.html','carousel/melville_carousel.html','carousel/sac_carousel.html',
+    'carousel/cse_carousel.html'];
+            
+    for(i=0;i<mypos.length;i++){
+        switch(mypos[i]){
+            case 'chapin':
+                lat = 40.906433; lon = -73.10991;
+                break;
+            case 'melville':
+                lat = 40.915458; lon =  -73.123514;
+                break;
+            case 'sac':
+                lat = 40.914591; lon = -73.123782;
+                break;
+            case 'CSE':
+            lat = 40.912441; lon = -73.121704;
+                break;
+        }
+        loc[i] = new google.maps.LatLng(lat, lon);
+        markers[i] = new google.maps.Marker({
+                                position:loc[i]
+                     });
+        markers[i].setMap(map);
+    }
+
+    var contents = [];
+    var para = "";
+    var imgs;
+    var heading;
+    var infowindows = [];
+    // var titlePg = ['chapin', 'melville', 'sac', 'CSE'];
+    for(i=0;i<mypos.length;i++){
+                heading = "<h3>"+mypos[i]+"</h3>";
+                imgs = "<img height='200px' width='200px' src='"+imgUrl[i]+"' />";
+                para = "<p>" + imgs + "<a target='_blank' href='"+links[i]+"'>'"+info[i]+"'</a> </p>";
+                contents[i] = heading + para ;
+                infowindows[i] = new google.maps.InfoWindow({
+                                            content:contents[i]
+                                 });
+    }
+
+    google.maps.event.addListener(markers[0], 'click', function() {
+      infowindows[0].open(map,markers[0]);
+    });
+    
+    google.maps.event.addListener(markers[1], 'click', function() {
+      infowindows[1].open(map,markers[1]);
+    }); 
+    google.maps.event.addListener(markers[2], 'click', function() {
+      infowindows[2].open(map,markers[2]);
+    });
+    google.maps.event.addListener(markers[3], 'click', function() {
+      infowindows[3].open(map,markers[3]);
+    });
+}
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+</head>
+
+<body>
+<div id="googleMap" style="width:1450px;height:680px;"></div>
+</body>
+
+</html>
